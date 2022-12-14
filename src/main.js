@@ -14,7 +14,7 @@ async function fetchPerson() {
 }
 
 // Try/catch errors
-async function run() {
+async function runFetchPerson() {
   try {
     await fetchPerson();
   } catch (e) {
@@ -24,7 +24,7 @@ async function run() {
   }
 }
 
-run();
+runFetchPerson();
 
 const results = document.querySelector('#results');
 
@@ -38,15 +38,26 @@ async function asyncFetch(value) {
 function displayResults(data, value) {
   let output = '';
   if (value === 'films') {
-    data.results.forEach((item) => {
+    data.results.forEach((item, index) => {
       output += `
             <div class="card p-3 m-3" style="opacity:.8">
             <h4 class="card-title text-center">${item.title}</h4>
             <div class="card-content">
-                <span style="text-decoration:underline">Producer</span>:  ${item.producer}<br>
-                <span style="text-decoration:underline">Director</span>:  ${item.director}<br>
-                <span style="text-decoration:underline">Release Date</span>:  ${item.release_date}<br>
+                <span style="text-decoration:underline">Producer</span>:  ${
+                  item.producer
+                }<br>
+                <span style="text-decoration:underline">Director</span>:  ${
+                  item.director
+                }<br>
+                <span style="text-decoration:underline">Release Date</span>:  ${
+                  item.release_date
+                }<br>
                 <p class="text-center">${item.opening_crawl}</p>
+                  <div id="buttons1" class= "text-center mb5">
+                  <a class="btn btn-primary" id="characters" href="./res/${
+                    index + 1
+                  }.html" target="_blank"> Characters ${index + 1}</a>
+                  </div>
             </div>
             </div>
         `;
@@ -61,8 +72,8 @@ function displayResults(data, value) {
             <div class="card-content">
                 <span style="text-decoration:underline">Height</span>:  ${item.height}<br>
                 <span style="text-decoration:underline">Birth Year</span>:  ${item.birth_year}<br>
-                <span style="text-decoration:underline">Skin Color</span>:  ${item.skin_color}<br>
-
+                <span style="text-decoration:underline">Eye Color</span>:  ${item.eye_color}<br>
+                 
             </div>
             </div>
         `;
