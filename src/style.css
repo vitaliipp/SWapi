@@ -1,0 +1,11 @@
+.rounded-img {
+  width: 60%;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+.api {
+  color: red;
+}
